@@ -2,12 +2,10 @@
 
 ## run the app (without Docker)
 ### Development
-1. Compile SCSS `npm run watch-css`
-2. Run the app `npm start`
+1. Run the app `npm start`
 
 ### Production
-1. Compile SCSS `npm run build-css`
-2. Build react `npm run build`
+1. Build react `npm run build`
 
 
 
