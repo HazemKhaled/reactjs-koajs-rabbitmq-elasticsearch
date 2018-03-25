@@ -1,0 +1,18 @@
+@import '../mixin.scss';
+.navbar {
+    background: unset;
+    border: unset;
+    text-align: center;
+    .navbar-nav {
+        display: inline-block;
+        float: none;
+    }
+    .navbar-nav>li {
+        float: left;
+    }
+    li a {
+        text-transform: uppercase;
+        font-family: $category-menu-font;
+        font-size: 18px;
+    }
+}

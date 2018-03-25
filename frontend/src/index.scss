@@ -1,7 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
-
+@import './mixin.scss';
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto Slab', sans-serif;
+    font-family: $primary-font;
 }
