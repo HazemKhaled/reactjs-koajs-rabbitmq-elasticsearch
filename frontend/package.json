@@ -13,7 +13,7 @@
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "http://backend:8080",
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",

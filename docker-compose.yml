@@ -27,6 +27,8 @@ services:
     volumes:
       - '.:/usr/src/app'
     working_dir: '/usr/src/frontend'
+    networks:
+      - local
   backend:
     build: ./backend
     ports:
@@ -34,6 +36,11 @@ services:
     volumes:
       - '.:/usr/src/app'
     working_dir: '/usr/src/backend'
+    networks:
+      - local
 volumes:
   esdata1:
     driver: local
+networks:
+  local:
+    driver: bridge
