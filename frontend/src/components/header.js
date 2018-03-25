@@ -12,13 +12,14 @@ class Header extends Component {
         return (
             <div className="container-fluid">
                 <Row>
-                    <Col sm={5} xs={2} className="text-right vertical-align">
-                        <img src={menuPng} alt="Menu" className="mobile-only" />
+                    <Col sm={5} xs={2} className="vertical-align">
+                        <a href="/">
+                            <img src={menuPng} alt="Menu" className="mobile-only" /></a>
                     </Col>
                     <Col sm={2} xs={8} className="text-center">
                         <img src={logoPng} alt="Mamas Papas" className="logo-img" />
                     </Col>
-                    <Col sm={5} xs={2} className="vertical-align">
+                    <Col sm={5} xs={2} className="text-right vertical-align">
                         <SmallMenu className="mobile-not" />
                         <img src={cartPng} alt="Menu" className="mobile-only" />
                     </Col>

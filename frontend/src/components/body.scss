@@ -18,6 +18,13 @@
     content: '';
 }
 
+@media screen and (max-width: $break-large) {
+    .carousel.slide {
+        margin-top: -20px;
+        z-index: -1;
+    }
+}
+
 .search-container {
     width: 300px;
     height: 40px;
@@ -38,4 +45,5 @@
     @include placeholder {
         color: gray;
     }
+    background-color: transparent;
 }
