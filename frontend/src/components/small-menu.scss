@@ -4,8 +4,9 @@
         text-align: right;
     }
     li a {
+        text-transform: capitalize;
         font-family: $right-menu-font;
-        font-size: 14px;
+        font-size: 12px;
         padding: 10px 10px;
     }
 }

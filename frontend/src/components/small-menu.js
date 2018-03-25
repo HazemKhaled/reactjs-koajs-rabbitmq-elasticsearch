@@ -11,7 +11,7 @@ class Menu extends Component {
                     <NavItem>|</NavItem>
                     <NavItem eventKey={2} href="#">Stores</NavItem>
                     <NavItem className="mobile-not">|</NavItem>
-                    <NavItem className="mobile-not" eventKey={3} href="#">My bag (2)</NavItem>
+                    <NavItem className="mobile-not" eventKey={3} href="#">Your bag (2)</NavItem>
                 </Nav>
             </Navbar>
         );
