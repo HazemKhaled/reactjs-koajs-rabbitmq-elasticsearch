@@ -1,4 +1,4 @@
-FROM node
+FROM node:8
 
 ENV NPM_CONFIG_LOGLEVEL warn
 ARG app_env
@@ -9,6 +9,8 @@ WORKDIR /usr/src/frontend
 COPY . .
 
 RUN npm install
+
+RUN npm rebuild node-sass
 
 CMD if [ ${APP_ENV} = production ]; \
 	then \

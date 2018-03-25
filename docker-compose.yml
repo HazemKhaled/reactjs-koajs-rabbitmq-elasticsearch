@@ -26,14 +26,14 @@ services:
       - '80:3000'
     volumes:
       - '.:/usr/src/app'
-    working_dir: '/usr/src/app/frontend'
+    working_dir: '/usr/src/frontend'
   backend:
     build: ./backend
     ports:
       - '8080:8080'
     volumes:
       - '.:/usr/src/app'
-    working_dir: '/usr/src/app/backend'
+    working_dir: '/usr/src/backend'
 volumes:
   esdata1:
     driver: local

@@ -1,4 +1,4 @@
-FROM node
+FROM node:8
 
 RUN mkdir -p /backend
 WORKDIR /usr/src/backend
