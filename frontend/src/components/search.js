@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import searchIcon from '../images/search.png';
-import { Glyphicon, Row, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Glyphicon, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './search.css';
 
 class Search extends Component {
