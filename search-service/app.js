@@ -42,23 +42,32 @@ microserviceKit
 
         // Consume some core jobs!
         coreQueue.consumeEvent('search', (data, callback, progress, routingKey) => {
-            console.log("Search for: " + data.keywork);
+            console.log("Search for: " + data.keyword);
             //console.log("The routing key of the job was", routingKey);
 
             elasticClient.search({
                 index: 'catalog',
                 body: {
                     query: {
-                        match_all: {}
-                    }
+                        "multi_match": {
+                            "query": data.keyword,
+                            "fields": ["name", "description"]
+                        }
+                    },
+                    "sort": [
+                        //{ "product": { "isInStock": "asc" } }
+                    ]
                 }
             }, function (error, response) {
-                callback(null, response.hits.hits);
+                if (error) {
+                    console.error(error);
+                    return;
+                }
+                callback(error, response.hits.hits);
             });
 
         });
     })
     .catch((err) => {
-        console.log('Cannot boot');
-        console.log(err.stack);
+        err && console.error(err)
     });
