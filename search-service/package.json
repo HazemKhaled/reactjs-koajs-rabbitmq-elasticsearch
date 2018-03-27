@@ -4,6 +4,7 @@
   "description": "RabbitMQ message consumer",
   "main": "app.js",
   "dependencies": {
+    "elasticsearch": "^14.2.1",
     "microservice-kit": "^0.4.1"
   },
   "devDependencies": {
