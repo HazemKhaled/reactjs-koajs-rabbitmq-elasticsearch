@@ -5,9 +5,6 @@ services:
     restart: always
     ports: 
       - 15672:15672
-      - 5672:5672
-    networks:
-      - local
   frontend:
     build: ./frontend
     ports:
@@ -18,17 +15,12 @@ services:
       - './frontend:/usr/src/frontend'
       - /usr/src/frontend/node_modules
     working_dir: '/usr/src/frontend'
-    networks:
-      - local
+    links:
+      - api
   api:
     build: ./api
-    ports:
-      - '8080:8080'
     volumes:
       - './api:/usr/src/api'
     working_dir: '/usr/src/api'
-    networks:
-      - local
-networks:
-  local:
-    driver: bridge
+    links:
+      - rabbitmq
