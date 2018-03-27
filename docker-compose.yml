@@ -31,9 +31,22 @@ services:
     build: ./search-service
     volumes:
       - './search-service:/usr/src/search-service'
+      - esdata1:/usr/share/elasticsearch/data
     working_dir: '/usr/src/search-service'
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 9200:9200 # Optional just to debug
     links:
       - rabbitmq
     depends_on:
       - rabbitmq
-    command: ["dockerize", "-wait", "http://rabbitmq:15672", "-timeout", "99s", "--", "npm", "run", "start-dev"]
+volumes:
+  esdata1:
+    driver: local
