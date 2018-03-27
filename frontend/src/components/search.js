@@ -37,13 +37,12 @@ class Search extends Component {
     }
 
     render() {
-        const { products } = this.state;
 
-        let productRows = products.map((product) => (
-            <ListGroupItem key={product.sku}>{product.name}</ListGroupItem>
+        let productRows = this.state.products.map((product) => (
+            <ListGroupItem key={product._id}>{product._source.name}</ListGroupItem>
         ));
 
-        productRows = productRows || <Glyphicon glyph="refresh" />;
+        productRows = this.state.products.length !== 0 ? productRows : <Glyphicon glyph="refresh" />;
 
         return (
             <div className="search-container">
