@@ -1,0 +1,19 @@
+{
+  "name": "search-service",
+  "version": "1.0.0",
+  "description": "RabbitMQ message consumer",
+  "main": "app.js",
+  "dependencies": {
+    "microservice-kit": "^0.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  },
+  "scripts": {
+    "start-dev": "nodemon app.js",
+    "start": "node app.js",
+    "test": "make test"
+  },
+  "author": "Hazem Khaled <hazem.khaled@gmail.com>",
+  "license": "ISC"
+}
