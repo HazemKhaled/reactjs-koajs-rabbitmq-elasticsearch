@@ -13,7 +13,7 @@ services:
     ports:
       - '80:3000'
     volumes:
-      - '.:/usr/src/app'
+      - './frontend:/usr/src/frontend'
     working_dir: '/usr/src/frontend'
     networks:
       - local
@@ -22,7 +22,7 @@ services:
     ports:
       - '8080:8080'
     volumes:
-      - '.:/usr/src/app'
+      - './api:/usr/src/api'
     working_dir: '/usr/src/api'
     networks:
       - local
