@@ -1,6 +1,9 @@
 const MicroserviceKit = require('microservice-kit');
 const Errors = MicroserviceKit.ErrorType;
 
+// Connection
+const elasticClient = require('./elastic');
+
 const microserviceKit = new MicroserviceKit({
     type: 'core-worker',
     config: null, // Dont use config file!
