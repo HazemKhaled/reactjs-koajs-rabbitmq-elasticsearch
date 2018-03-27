@@ -13,6 +13,6 @@ COPY . .
 
 RUN npm install
 
-CMD ["npm", "run", "start-dev" ]
+CMD ["dockerize", "-wait", "http://rabbitmq:15672", "-timeout", "99s", "--", "npm", "run", "start-dev"]
 
 EXPOSE 8080

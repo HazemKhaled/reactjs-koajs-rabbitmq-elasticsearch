@@ -4,7 +4,7 @@ services:
     image: rabbitmq:management-alpine
     restart: always
     ports: 
-      - 15672:15672
+      - 15672:15672 #RabbitMQ interface
   frontend:
     build: ./frontend
     ports:
@@ -26,7 +26,6 @@ services:
       - rabbitmq
     depends_on:
       - rabbitmq
-    command: ["dockerize", "-wait", "http://rabbitmq:15672", "-timeout", "99s", "--", "npm", "run", "start-dev"]
   search-service:
     build: ./search-service
     volumes:
