@@ -5,19 +5,31 @@ const url = require('url');
 const app = new Koa();
 const router = new Router();
 
-router.get('/search', (ctx, next) => {
-    ctx.is('application/json'); // => 'application/json'
+// Open RabbitMQ connection
+const microserviceKit = require('./mskit');
 
-    ctx.body = [
-        { sku: '123', name: 'Product #1' },
-        { sku: '234', name: 'Product #2' },
-        { sku: '345', name: 'Product #3' },
-        { sku: '456', name: 'Product #4' }
-    ];
+router.get('/search', async (ctx, next) => {
+    ctx.is('application/json'); // => 'application/json'
 
     const query = url.parse(ctx.req.url, true).query;
 
     console.log(query.keyword);
+
+    // the queue handler of opened connection
+    const coreQueue = microserviceKit.amqpKit.getQueue('core');
+
+    await coreQueue
+        .sendEvent('search', { keyword: query.keyword }, { persistent: true })
+        .then((response) => {
+
+            // We getting response already JSON, so pass it to frontend
+            ctx.body = response;
+            console.log('We get result: ' + response.length);
+        })
+        .catch((err) => {
+            console.log('Negative response: ', err);
+        });
+
 });
 
 app
@@ -25,3 +37,4 @@ app
     .use(router.allowedMethods());
 
 app.listen(8080);
+
