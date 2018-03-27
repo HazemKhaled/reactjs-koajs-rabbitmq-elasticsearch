@@ -45,12 +45,17 @@ microserviceKit
             console.log("Search for: " + data.keywork);
             //console.log("The routing key of the job was", routingKey);
 
-            callback(null, [
-                { sku: '123', name: 'Product #1' },
-                { sku: '234', name: 'Product #2' },
-                { sku: '345', name: 'Product #3' },
-                { sku: '456', name: 'Product #4' }
-            ]);
+            elasticClient.search({
+                index: 'catalog',
+                body: {
+                    query: {
+                        match_all: {}
+                    }
+                }
+            }, function (error, response) {
+                callback(null, response.hits.hits);
+            });
+
         });
     })
     .catch((err) => {
