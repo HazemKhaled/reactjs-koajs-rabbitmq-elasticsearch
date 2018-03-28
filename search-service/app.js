@@ -49,9 +49,17 @@ microserviceKit
                 index: 'catalog',
                 body: {
                     query: {
-                        "multi_match": {
-                            "query": data.keyword,
-                            "fields": ["name", "description"]
+                        bool: {
+                            should: {
+                                "multi_match": {
+                                    "query": data.keyword,
+                                    "fields": ["name^5", "description"]
+                                },
+                                "multi_match": {
+                                    "query": data.keyword,
+                                    "fields": ["sku", "ediRef"]
+                                }
+                            }
                         }
                     },
                     "sort": [
