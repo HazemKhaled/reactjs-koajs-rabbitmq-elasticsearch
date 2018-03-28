@@ -50,21 +50,32 @@ microserviceKit
                 body: {
                     query: {
                         bool: {
-                            should: {
+                            // Should means OR
+                            should: [{
+                                // Search in many fields
                                 "multi_match": {
                                     "query": data.keyword,
-                                    "fields": ["name^5", "description"]
-                                },
-                                "multi_match": {
-                                    "query": data.keyword,
-                                    "fields": ["sku", "ediRef"]
+                                    "fields": [
+                                        // Set priority with ^3
+                                        "name",
+                                        "description"
+                                    ],
+                                    // To get the result even if mispeled
+                                    "fuzziness": "AUTO"
                                 }
-                            }
+                            }, {
+                                term: { "sku": data.keyword }
+                            }, {
+                                term: { "ediRef": data.keyword }
+                            }]
                         }
                     },
-                    "sort": [
-                        //{ "product": { "isInStock": "asc" } }
-                    ]
+                    // Keep out of stock at the end
+                    sort: [
+                        { "isInStock": { "order": "desc" } }
+                    ],
+                    // We only need name field for now
+                    _source: ["name"]
                 }
             }, function (error, response) {
                 if (error) {
