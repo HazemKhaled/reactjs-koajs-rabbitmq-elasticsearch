@@ -9,6 +9,7 @@
       - [Bootstrap 3](#bootstrap-3)
       - [WebPack](#webpack)
       - [SASS](#sass)
+    - [Web Workers & fetch](#web-workers--fetch)
     - [API Backend](#api-backend)
       - [KoaJS](#koajs)
       - [MicroserviceKit](#microservicekit)
@@ -22,9 +23,10 @@
   - [Setup](#setup)
     - [Development](#development)
       - [Docker _recommended_](#docker-_recommended_)
-      - [npm](#npm)
+      - [npm _not tested_](#npm-_not-tested_)
     - [Production](#production)
-  - [Referance](#referance)
+  - [TODOs](#todos)
+  - [Referances](#referances)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -47,6 +49,9 @@ It comes built-in with [create-react-app](https://github.com/facebook/create-rea
 
 #### [SASS](https://sass-lang.com/)
 I'm using npm [node-sass-chokidar](https://www.npmjs.com/package/node-sass-chokidar) because some issues in node-sass with Docker (#1939)[https://github.com/facebookincubator/create-react-app/issues/1939], (#1891)[https://github.com/sass/node-sass/issues/1891]
+
+### Web Workers & fetch
+The new `fetch` function is supported in [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers), which is important part of PWA. It's not yet supported in all browsers, so create-react-app using Polyfills to fill the gap.
 
 ### API Backend
 This app serving the auto complete in the Frontend app, and pass the keyword to the RabbitMQ container.
@@ -109,6 +114,10 @@ http://localhost:9200
 
 ### Production
 This development tutorial and not ready for production deployment.
+
+## TODOs
+* Frontend
+  1. Add option to load images with WebPack or put into a "sprite" file, with task to generate it like [webpack-spritesmith]()https://www.npmjs.com/package/webpack-spritesmith.
 
 ## Referances
 * [Using create-react-app](https://github.com/facebook/create-react-app)
