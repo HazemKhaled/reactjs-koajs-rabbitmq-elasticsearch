@@ -99,15 +99,18 @@ http://localhost:8080
 elasticsearch
 http://localhost:9200
 
-#### npm
+#### npm _not tested_
 * Run backend `cd ./backend && npm start`
 * Run frontend `cd ./frontend && npm start`
-Note: You need to change [http://backend:8080 to http://localhost:8080](https://github.com/HazemKhaled/reactjs-koajs-rabbitmq-elasticsearch/blob/master/frontend/package.json#L16) to run without Docker
+  * You need to change [http://backend:8080 to http://localhost:8080](https://github.com/HazemKhaled/reactjs-koajs-rabbitmq-elasticsearch/blob/master/frontend/package.json#L16)
+  * You also need to start RabbitMQ on your server and change its url [from here](https://github.com/HazemKhaled/reactjs-koajs-rabbitmq-elasticsearch/blob/master/search-service/app.js#L11)
+* Run search service `cd ./search-service && npm start`
+  * You need to run elasticsearch first
 
 ### Production
 This development tutorial and not ready for production deployment.
 
-## Referance
+## Referances
 * [Using create-react-app](https://github.com/facebook/create-react-app)
 * [Workaround for sass issue with docker](https://github.com/sass/node-sass/issues/1527#issuecomment-258415873)
 * [Control startup order in Compose](https://docs.docker.com/compose/startup-order/)
