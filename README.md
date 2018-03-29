@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Search example using Elasticsearch and RabbitMQ](#search-example-using-elasticsearch-and-rabbitmq)
+- [Search example using elasticsearch and RabbitMQ](#search-example-using-elasticsearch-and-rabbitmq)
   - [Apps & Dependencies](#apps--dependencies)
     - [Frontend](#frontend)
       - [ReactJS](#reactjs)
@@ -14,7 +14,11 @@
       - [MicroserviceKit](#microservicekit)
     - [Search Service](#search-service)
       - [MicroserviceKit](#microservicekit-1)
+      - [elasticsearch.js](#elasticsearchjs)
   - [Dockers](#dockers)
+    - [links:](#links)
+    - [dockerize](#dockerize)
+    - [search-service](#search-service)
   - [Setup](#setup)
     - [Development](#development)
       - [Docker _recommended_](#docker-_recommended_)
@@ -24,11 +28,11 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Search example using Elasticsearch and RabbitMQ
-Simple search app using [React](https://reactjs.org/) for frontend, [Koa](http://koajs.com/) for backend, [RabbitMQ](https://www.rabbitmq.com/) and [Elasticsearch](https://www.elastic.co/products/elasticsearch) to handle search requests.
+# Search example using elasticsearch and RabbitMQ
+Simple search app using [React](https://reactjs.org/) for frontend, [Koa](http://koajs.com/) for backend, [RabbitMQ](https://www.rabbitmq.com/) and [elasticsearch](https://www.elastic.co/products/elasticsearch) to handle search requests.
 
 <strong>TL;DR</strong>
-<p>Using Elasticsearch with Message Queue platform _I'm using RabbitMQ in this app_ has a value in large-scale projects, Elasticsearch only can be enough if you need to add efficient and super fast search engine in your project whatever the scale.</p>
+<p>Using elasticsearch with Message Queue platform _I'm using RabbitMQ in this app_ has a value in large-scale projects, elasticsearch only can be enough if you need to add efficient and super fast search engine in your project whatever the scale.</p>
 
 ## Apps & Dependencies
 ### Frontend
@@ -57,13 +61,29 @@ This package is good wrapper for [amqplib](http://www.squaremobius.net/amqp.node
 
 
 ### Search Service
-It's a Microservice bridging between RabbitMQ and Elasticsearch, passing search keyword sent initially from API Backend, and return the hits.
+It's a Microservice bridging between RabbitMQ and elasticsearch, passing search keyword sent initially from API Backend, and return the hits.
+
+In `./search-service/elastic.js` i'm creating the connection then [create some dummy](https://github.com/HazemKhaled/reactjs-koajs-rabbitmq-elasticsearch/blob/master/search-service/elastic.js#L10) data to play with.
 
 #### [MicroserviceKit](https://github.com/signalive/microservice-kit)
 Consume the event and process it.
 
+#### [elasticsearch.js](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/index.html)
+NPM Package to handle elasticsearch rest API
+
 ## Dockers
-_Soon_
+I created 4 Dockers, frontend, api, RabbitMQ and last one for elasticsearch with search microservice together.
+
+### links:
+We can use links or network to open the connection between containers.
+
+### dockerize
+Simple tool create unlimite loop pinging a url, once reached the loop stop. I used it to make sure RabbitMQ and elasticsearch services started, then `run npm start`.
+
+### search-service
+elasticsearch official image depends on Centos 7, so it was easier to extend it and easy install Node.js and dockerize.
+
+To start elasticsearch service and the nodejs microservice, i created `./search-service/docker/start.sh` file.
 
 ## Setup
 ### Development
@@ -76,7 +96,7 @@ http://localhost
 Backend
 http://localhost:8080
 
-Elasticsearch
+elasticsearch
 http://localhost:9200
 
 #### npm
