@@ -49,7 +49,7 @@ elasticClient.indices.exists({
                             isInStock: p.isInStock
                         }
                     });
- 
+
                 });
 
             }).catch(error => {
@@ -60,27 +60,4 @@ elasticClient.indices.exists({
     }
 });
 
-//console.log('hey', hey);
-
 module.exports = elasticClient;
-// var indexName = "catalog";
-
-// /**
-// * create the index
-// */
-// function initIndex() {
-//     return elasticClient.indices.create({
-//         index: indexName
-//     });
-// }
-// exports.initIndex = initIndex;
-
-// /**
-// * check if the index exists
-// */
-// function indexExists() {
-//     return elasticClient.indices.exists({
-//         index: indexName
-//     });
-// }
-// exports.indexExists = indexExists;

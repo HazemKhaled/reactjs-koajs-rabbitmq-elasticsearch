@@ -13,7 +13,7 @@ router.get('/search', async (ctx, next) => {
 
     const query = url.parse(ctx.req.url, true).query;
 
-    console.log(query.keyword);
+    console.log('Search for:', query.keyword);
 
     // the queue handler of opened connection
     const coreQueue = microserviceKit.amqpKit.getQueue('core');
