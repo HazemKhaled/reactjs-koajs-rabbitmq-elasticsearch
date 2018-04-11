@@ -13,8 +13,7 @@
     "nodemon": "^1.17.2"
   },
   "scripts": {
-    "start-dev": "nodemon app.js",
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": "make test"
   },
   "author": "Hazem Khaled <hazem.khaled@gmail.com>",
