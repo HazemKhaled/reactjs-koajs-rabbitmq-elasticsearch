@@ -1,0 +1,23 @@
+{
+    "extends": "react-app",
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "no-console": 1,
+        "indent": [
+            2,
+            2
+        ],
+        "quotes": [
+            2,
+            "single"
+        ],
+        "semi": [
+            2,
+            "always"
+        ]
+    }
+}
