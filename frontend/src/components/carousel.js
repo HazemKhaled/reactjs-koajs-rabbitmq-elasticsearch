@@ -6,16 +6,24 @@ import './carousel.css';
 class Slider extends Component {
   render() {
     return (
-
       <Carousel>
         <Carousel.Item>
-          <img src="http://lorempixel.com/960/375/fashion/?someRandomStrings" alt="img1" />
+          <img
+            src="http://lorempixel.com/960/375/fashion/?someRandomStrings"
+            alt="img1"
+          />
         </Carousel.Item>
         <Carousel.Item>
-          <img src="http://lorempixel.com/960/375/fashion/?someRandomStrings" alt="img1" />
+          <img
+            src="http://lorempixel.com/960/375/fashion/?someRandomStrings"
+            alt="img1"
+          />
         </Carousel.Item>
         <Carousel.Item>
-          <img src="http://lorempixel.com/960/375/fashion/?someRandomStrings" alt="img1" />
+          <img
+            src="http://lorempixel.com/960/375/fashion/?someRandomStrings"
+            alt="img1"
+          />
         </Carousel.Item>
       </Carousel>
     );

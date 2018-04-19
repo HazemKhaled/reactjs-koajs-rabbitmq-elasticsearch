@@ -15,7 +15,8 @@ class Header extends Component {
         <Row>
           <Col sm={5} xs={2} className="vertical-align">
             <a href="/">
-              <img src={menuPng} alt="Menu" className="mobile-only" /></a>
+              <img src={menuPng} alt="Menu" className="mobile-only" />
+            </a>
           </Col>
           <Col sm={2} xs={8} className="text-center">
             <img src={logoPng} alt="Mamas Papas" className="logo-img" />

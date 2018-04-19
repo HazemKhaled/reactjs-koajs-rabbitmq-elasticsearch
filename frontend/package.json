@@ -25,6 +25,7 @@
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/eslint/bin/eslint.js ."
+    "lint": "./node_modules/eslint/bin/eslint.js .",
+    "prettier": "./node_modules/prettier/bin-prettier.js '**/**.{js,scss}' --write"
   }
 }

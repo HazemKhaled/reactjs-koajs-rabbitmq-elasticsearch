@@ -1,77 +1,52 @@
 @import '../mixin.scss';
-.carousel-inner>.item>img {
-    width: 100%;
-}
-
-.carousel-control.left,
-.carousel-control.right {
-    display: none;
-}
-
-.carousel .item::before {
-    display: block;
-    position: relative;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0, #fff 100%);
-    margin-bottom: -20px;
-    height: 20px;
-    width: 100%;
-    content: '';
-}
-
-@media screen and (max-width: $break-large) {
-    .carousel.slide {
-        margin-top: -20px;
-        z-index: -1;
-    }
-}
 
 .search-container {
-    width: 300px;
-    height: 40px;
-    margin: 0 auto;
-    border-bottom: 1px solid #1d1d1b;
+  width: 300px;
+  height: 40px;
+  margin: 0 auto;
+  border-bottom: 1px solid #1d1d1b;
 }
 
 .search-container input {
-    height: 100%;
-    width: 280px;
-    border: unset;
-    font-family: "Helvetica Neue", sans-serif;
-    font-size: 18px;
-    font-style: italic;
-    font-weight: lighter;
-    outline: 0;
-    margin-bottom: 10px;
-    @include placeholder {
-        color: gray;
-    }
-    background-color: transparent;
+  height: 100%;
+  width: 280px;
+  border: unset;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: lighter;
+  outline: 0;
+  margin-bottom: 10px;
+  @include placeholder {
+    color: gray;
+  }
+  background-color: transparent;
 }
 
 .search-result {
-    position: absolute;
-    background-color: #ffffff;
-    width: 300px;
-    min-height: 100px;
-    z-index: 99;
-    margin-top: -10px;
+  position: absolute;
+  background-color: #ffffff;
+  width: 300px;
+  min-height: 100px;
+  z-index: 99;
+  margin-top: -10px;
 }
 
 .search-result .glyphicon {
-    animation: loading-spin infinite 1s linear;
-    height: 28px;
-    width: 30px;
-    font-size: 30px;
-    display: block;
-    margin: 30px auto;
-    color: gray;
+  animation: loading-spin infinite 1s linear;
+  height: 28px;
+  width: 30px;
+  font-size: 30px;
+  display: block;
+  margin: 30px auto;
+  color: gray;
 }
 
 @keyframes loading-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

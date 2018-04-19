@@ -77,7 +77,7 @@ microserviceKit
                     // We only need name field for now
                     _source: ["name"]
                 }
-            }, function (error, response) {
+            }, (error, response) => {
                 if (error) {
                     console.error(error);
                     return;
@@ -88,5 +88,5 @@ microserviceKit
         });
     })
     .catch((err) => {
-        err && console.error(err)
+        err && console.error(err);
     });

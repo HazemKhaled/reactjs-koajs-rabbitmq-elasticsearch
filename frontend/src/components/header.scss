@@ -1,12 +1,12 @@
 @import '../mixin.scss';
 @media screen and (min-width: $break-large) {
-    .logo-img {
-        margin-top: 10px;
-    }
+  .logo-img {
+    margin-top: 10px;
+  }
 }
 
 @media screen and (max-width: $break-large) {
-    .vertical-align {
-        line-height: 50px;
-    }
+  .vertical-align {
+    line-height: 50px;
+  }
 }

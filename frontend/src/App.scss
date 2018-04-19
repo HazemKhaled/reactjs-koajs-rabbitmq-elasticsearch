@@ -1,18 +1,18 @@
 @import './mixin.scss';
 .App {
-    margin: 0 auto;
-    padding: 20px 0 0;
-    width: 100%;
+  margin: 0 auto;
+  padding: 20px 0 0;
+  width: 100%;
 }
 
 @media screen and (max-width: $break-large) {
-    .mobile-not {
-        display: none !important;
-    }
+  .mobile-not {
+    display: none !important;
+  }
 }
 
 @media screen and (min-width: $break-large) {
-    .mobile-only {
-        display: none !important;
-    }
+  .mobile-only {
+    display: none !important;
+  }
 }
