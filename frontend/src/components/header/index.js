@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import CategoryMenu from './category-menu';
-import SmallMenu from './small-menu';
+import CategoryMenu from '../category-menu';
+import SmallMenu from '../small-menu';
 import { Row, Col } from 'react-bootstrap';
 
-import './header.css';
-import logoPng from '../images/logo.png';
-import menuPng from '../images/menu.png';
-import cartPng from '../images/cart.png';
+import './index.scss';
+import logoPng from '../../images/logo.png';
+import menuPng from '../../images/menu.png';
+import cartPng from '../../images/cart.png';
 
 class Header extends Component {
   render() {

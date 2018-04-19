@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
-import './category-menu.css';
+import './index.css';
 
 class Menu extends Component {
   render() {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Glyphicon, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-import './search.css';
-import searchIcon from '../images/search.png';
+import './index.css';
+import searchIcon from '../../images/search.png';
 
 class Search extends Component {
   state = { products: [], searchResultClass: 'hide' };
