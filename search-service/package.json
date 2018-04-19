@@ -8,12 +8,14 @@
     "microservice-kit": "^0.4.1"
   },
   "devDependencies": {
-    "nodemon": "^1.17.2"
+    "nodemon": "^1.17.2",
+    "prettier": "^1.12.1"
   },
   "scripts": {
     "start-dev": "nodemon app.js",
     "start": "node app.js",
-    "test": "make test"
+    "test": "make test",
+    "prettier": "./node_modules/prettier/bin-prettier.js '**/**.js' --write"
   },
   "author": "Hazem Khaled <hazem.khaled@gmail.com>",
   "license": "ISC"
