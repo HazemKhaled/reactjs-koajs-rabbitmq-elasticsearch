@@ -1,55 +1,82 @@
 import React, { Component } from 'react';
-import { Glyphicon, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Glyphicon, ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
 
 import './index.css';
 import searchIcon from '../../images/search.png';
 
 class Search extends Component {
-  state = { products: [], searchResultClass: 'hide' };
+  state = {
+    gotError: false,
+    products: [],
+    searchResultClass: 'hide',
+    loading: true
+  };
 
   handleSearchChange = event => {
+    // Search query
     const value = event.target.value.trim();
 
+    // Show/Hide search result depend on search length
+    const searchState = value.length > 2;
+
     this.setState({
-      products: [],
-      searchResultClass: value.length > 2 ? '' : 'hide'
+      searchResultClass: searchState ? '' : 'hide'
     });
 
-    if (value.length <= 2) {
+    // No need to search if less than 3
+    if (!searchState) {
       return;
     }
 
-    //TODO: Fetch from API
+    // Show loading
+    this.setState({ loading: true });
+
+    // Ping the service
     fetch('/search?keyword=' + encodeURIComponent(value))
       .then(response => response.json())
       .then(products => {
         this.setState({
           products,
-          searchResultClass: value.length > 2 ? '' : 'hide'
+          loading: false
         });
       })
       .catch(error => {
-        //TODO: Handle error here
+        this.setState({
+          gotError: true,
+          loading: false
+        });
       });
   };
 
   render() {
-    let productRows = this.state.products.map(product => (
-      <ListGroupItem key={product._id}>{product._source.name}</ListGroupItem>
-    ));
+    let productRows = '';
 
-    productRows =
-      this.state.products.length !== 0 ? (
-        productRows
-      ) : (
-        <Glyphicon glyph="refresh" />
+    if (this.state.loading) {
+      productRows = <Glyphicon glyph="refresh" />;
+    } else if (this.state.gotError) {
+      productRows = (
+        <Alert bsStyle="danger">
+          <strong>Ops!</strong> We got error :-(
+        </Alert>
       );
+    } else if (this.state.products.length !== 0) {
+      productRows = this.state.products.map(product => (
+        <ListGroupItem key={product._id}>{product._source.name}</ListGroupItem>
+      ));
+    } else {
+      productRows = (
+        <Alert bsStyle="warning">
+          <strong>Ops!</strong> we have no products :-(
+        </Alert>
+      );
+    }
 
     return (
       <div className="search-container">
         <input
           placeholder="Hello, I'm looking for..."
-          onKeyUp={this.handleSearchChange}
+          ref={input => (this.search = input)}
+          onChange={this.handleSearchChange}
         />
         <img src={searchIcon} alt="search" />
         <div className={`search-result ${this.state.searchResultClass}`}>
